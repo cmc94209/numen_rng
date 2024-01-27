@@ -15,7 +15,6 @@
     code_change/3]).
 
 -export([
-    seed_put/2,
     seed_get/1
 ]).
 -export([random/2, random/3]).
@@ -32,10 +31,6 @@ pid(GameId) ->
             {ok, Pid}
     end.
 
--spec seed_put(game_id(), state()) -> undefined | state().
-seed_put(GameId, Seed) ->
-    {ok, Pid} = pid(GameId),
-    gen_server:call(Pid, {seed_put, Seed}).
 
 -spec seed_get(game_id()) -> undefined | state().
 seed_get(GameId) ->
@@ -43,6 +38,7 @@ seed_get(GameId) ->
     gen_server:call(Pid, seed_get).
 
 %% Generate a (1-M) random number for the game
+-spec random(game_id(), integer()) -> integer().
 random(GameId, N) when is_integer(N) ->
     {ok, Pid} = pid(GameId),
     gen_server:call(Pid, {random, N}).
@@ -51,7 +47,6 @@ random(GameId, N) when is_integer(N) ->
 random(GameId, N, M) when is_integer(N), is_integer(M) ->
     {ok, Pid} = pid(GameId),
     gen_server:call(Pid, {random, N, M}).
-
 
 %%%===================================================================
 %%% Spawning and gen_server implementation

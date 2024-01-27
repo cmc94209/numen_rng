@@ -1,7 +1,9 @@
 * numen_rng
 ** Overview
 
-This project consists of two apps, rng and book_of_ra. rng is responsible for generating random numbers, and book_of_ra will call rng's apps to generate the grid.
+This project consists of two apps, rng and book_of_ra. rng is responsible for generating random numbers, and book_of_ra will call rng's apps to
+ generate the grid.
+rng uses exsplus. Seed algorithm: rand:seed_s(exsplus)
 
 ** Quick Start
    You must have [[http://erlang.org/download.html][Erlang/OTP 19.3]]
@@ -13,18 +15,6 @@ This project consists of two apps, rng and book_of_ra. rng is responsible for ge
     ra_game_logic.erl
     #+END_SRC
 
-** Code Snippet Description
- #+BEGIN_SRC shell
-    # rand.erl
-        ./rebar3 ct
-
-    # rng_generator.erl
-        ./rebar3 ct
-
-    # rng_generator.erl
-         ./rebar3 ct
- #+END_SRC
-      
 ** Testing
 
 #+BEGIN_SRC shell
