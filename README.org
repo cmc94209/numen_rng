@@ -8,6 +8,9 @@ This project consists of two apps, rng and book_of_ra. rng is responsible for ge
    git clone https://github.com/cmc94209/numen_rng.git
    git checkout dev
 
+ (progn
+   (insert "#+BEGIN_SRC \n\n#+END_SRC")
+       (move-end-of-line -1))
       
 ** Testing
 
