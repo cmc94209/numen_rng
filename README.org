@@ -12,8 +12,6 @@ This project consists of two apps, rng and book_of_ra. rng is responsible for ge
 ** Testing
 
 #+BEGIN_SRC shell
-# standard tests
-./rebar3 do xref, dialyzer, eunit
-# property-based tests
-./rebar3 as test eqc --testing_budget 600
+# suite tests
+./rebar3 ct
 #+END_SRC
