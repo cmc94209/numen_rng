@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module rand</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module rand</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#export_seed-0">export_seed/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#export_seed_s-1">export_seed_s/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_seed-0">get_seed/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#normal-0">normal/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#normal_s-1">normal_s/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#seed-1">seed/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#seed-2">seed/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#seed_put-1">seed_put/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#seed_s-1">seed_s/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#seed_s-2">seed_s/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#uniform-0">uniform/0</a></td><td></td></tr>
+<tr><td valign="top"><a href="#uniform-1">uniform/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#uniform_s-1">uniform_s/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#uniform_s-2">uniform_s/2</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="export_seed-0">export_seed/0</a></h3>
+<div class="spec">
+<p><tt>export_seed() -&gt; undefined | <a href="#type-export_state">export_state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="export_seed_s-1">export_seed_s/1</a></h3>
+<div class="spec">
+<p><tt>export_seed_s(X1::<a href="#type-state">state()</a>) -&gt; <a href="#type-export_state">export_state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="get_seed-0">get_seed/0</a></h3>
+<div class="spec">
+<p><tt>get_seed() -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="normal-0">normal/0</a></h3>
+<div class="spec">
+<p><tt>normal() -&gt; float()</tt><br></p>
+</div>
+
+<h3 class="function"><a name="normal_s-1">normal_s/1</a></h3>
+<div class="spec">
+<p><tt>normal_s(State0::<a href="#type-state">state()</a>) -&gt; {float(), NewS::<a href="#type-state">state()</a>}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="seed-1">seed/1</a></h3>
+<div class="spec">
+<p><tt>seed(AlgOrExpState::<a href="#type-alg">alg()</a> | <a href="#type-export_state">export_state()</a>) -&gt; <a href="#type-state">state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="seed-2">seed/2</a></h3>
+<div class="spec">
+<p><tt>seed(Alg::<a href="#type-alg">alg()</a>, S0::{integer(), integer(), integer()}) -&gt; <a href="#type-state">state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="seed_put-1">seed_put/1</a></h3>
+<div class="spec">
+<p><tt>seed_put(Seed::<a href="#type-state">state()</a>) -&gt; undefined | <a href="#type-state">state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="seed_s-1">seed_s/1</a></h3>
+<div class="spec">
+<p><tt>seed_s(AlgOrExpState::<a href="#type-alg">alg()</a> | <a href="#type-export_state">export_state()</a>) -&gt; <a href="#type-state">state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="seed_s-2">seed_s/2</a></h3>
+<div class="spec">
+<p><tt>seed_s(Alg::<a href="#type-alg">alg()</a>, S0::{integer(), integer(), integer()}) -&gt; <a href="#type-state">state()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="uniform-0">uniform/0</a></h3>
+<div class="spec">
+<p><tt>uniform() -&gt; X::float()</tt><br></p>
+</div>
+
+<h3 class="function"><a name="uniform-1">uniform/1</a></h3>
+<div class="spec">
+<p><tt>uniform(N::pos_integer()) -&gt; X::pos_integer()</tt><br></p>
+</div>
+
+<h3 class="function"><a name="uniform_s-1">uniform_s/1</a></h3>
+<div class="spec">
+<p><tt>uniform_s(State::<a href="#type-state">state()</a>) -&gt; {X::float(), NewS::<a href="#type-state">state()</a>}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="uniform_s-2">uniform_s/2</a></h3>
+<div class="spec">
+<p><tt>uniform_s(N::pos_integer(), State::<a href="#type-state">state()</a>) -&gt; {X::pos_integer(), NewS::<a href="#type-state">state()</a>}</tt><br></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Jan 27 2024, 18:06:23.</i></p>
+</body>
+</html>

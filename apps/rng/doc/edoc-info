@@ -1,0 +1,3 @@
+%% encoding: UTF-8
+{application,rng}.
+{modules,[rand,rng_app,rng_generator,rng_generator_sup,rng_sup]}.

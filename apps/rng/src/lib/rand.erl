@@ -24,37 +24,23 @@
 
 -module(rand).
 
+-include("rng.hrl").
+
 -export([seed_s/1, seed_s/2, seed/1, seed/2,
     export_seed/0, export_seed_s/1,
     uniform/0, uniform/1, uniform_s/1, uniform_s/2,
     normal/0, normal_s/1
 ]).
 
+-export([
+    get_seed/0,
+    seed_put/1
+    ]).
+
 -compile({inline, [exs64_next/1, exsplus_next/1,
     exs1024_next/1, exs1024_calc/2,
     get_52/1, normal_kiwi/1]}).
 
--define(DEFAULT_ALG_HANDLER, exsplus).
--define(SEED_DICT, rand_seed).
-
-%% =====================================================================
-%% Types
-%% =====================================================================
-
-%% This depends on the algorithm handler function
--type alg_seed() :: exs64_state() | exsplus_state() | exs1024_state().
-%% This is the algorithm handler function within this module
--type alg_handler() :: #{type := alg(),
-max := integer(),
-next := fun(),
-uniform := fun(),
-uniform_n := fun()}.
-
-%% Internal state
--opaque state() :: {alg_handler(), alg_seed()}.
--type alg() :: exs64 | exsplus | exs1024.
--opaque export_state() :: {alg(), alg_seed()}.
--export_type([alg/0, state/0, export_state/0]).
 
 %% =====================================================================
 %% API
@@ -91,6 +77,8 @@ seed_s(Alg) when is_atom(Alg) ->
 seed_s({Alg0, Seed}) ->
     {Alg, _SeedFun} = mk_alg(Alg0),
     {Alg, Seed}.
+
+
 
 %% seed/2: seeds RNG with the algorithm and given values
 %% and returns the NEW state.
@@ -182,15 +170,7 @@ normal_s(State0) ->
 %% =====================================================================
 %% Internal functions
 
--define(UINT21MASK, 16#00000000001fffff).
--define(UINT32MASK, 16#00000000ffffffff).
--define(UINT33MASK, 16#00000001ffffffff).
--define(UINT39MASK, 16#0000007fffffffff).
--define(UINT58MASK, 16#03ffffffffffffff).
--define(UINT64MASK, 16#ffffffffffffffff).
 
--type uint64() :: 0..16#ffffffffffffffff.
--type uint58() :: 0..16#03ffffffffffffff.
 
 -spec seed_put(state()) -> undefined | state().
 seed_put(Seed) ->
@@ -201,6 +181,9 @@ seed_get() ->
         undefined -> seed(?DEFAULT_ALG_HANDLER);
         Old -> Old  % no type checking here
     end.
+
+get_seed()->
+    erlang:get(?SEED_DICT).
 
 %% Setup alg record
 mk_alg(exs64) ->
@@ -222,7 +205,6 @@ mk_alg(exs1024) ->
 %% Reference URL: http://xorshift.di.unimi.it/
 %% =====================================================================
 
--type exs64_state() :: uint64().
 
 exs64_seed({A1, A2, A3}) ->
     {V1, _} = exs64_next(((A1 band ?UINT32MASK) * 4294967197 + 1)),
@@ -254,7 +236,7 @@ exs64_uniform(Max, {Alg, R}) ->
 %% Modification of the original Xorshift128+ algorithm to 116
 %% by Sebastiano Vigna, a lot of thanks for his help and work.
 %% =====================================================================
--type exsplus_state() :: nonempty_improper_list(uint58(), uint58()).
+
 
 -dialyzer({no_improper_lists, exsplus_seed/1}).
 
@@ -289,7 +271,6 @@ exsplus_uniform(Max, {Alg, R}) ->
 %% Reference URL: http://xorshift.di.unimi.it/
 %% =====================================================================
 
--type exs1024_state() :: {list(uint64()), list(uint64())}.
 
 exs1024_seed({A1, A2, A3}) ->
     B1 = (((A1 band ?UINT21MASK) + 1) * 2097131) band ?UINT21MASK,

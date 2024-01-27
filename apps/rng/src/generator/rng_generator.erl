@@ -8,10 +8,16 @@
 
 -behaviour(gen_server).
 
+-include("rng.hrl").
+
 -export([start_link/1]).
 -export([init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2,
     code_change/3]).
 
+-export([
+    seed_put/2,
+    seed_get/1
+]).
 -export([random/2, random/3]).
 
 -define(SERVER, ?MODULE).
@@ -26,14 +32,24 @@ pid(GameId) ->
             {ok, Pid}
     end.
 
+-spec seed_put(game_id(), state()) -> undefined | state().
+seed_put(GameId, Seed) ->
+    {ok, Pid} = pid(GameId),
+    gen_server:call(Pid, {seed_put, Seed}).
+
+-spec seed_get(game_id()) -> undefined | state().
+seed_get(GameId) ->
+    {ok, Pid} = pid(GameId),
+    gen_server:call(Pid, seed_get).
+
 %% Generate a (1-M) random number for the game
 random(GameId, N) when is_integer(N) ->
-    {ok,Pid} = pid(GameId),
+    {ok, Pid} = pid(GameId),
     gen_server:call(Pid, {random, N}).
 
 %% Generate a (N-M) random number for the game
 random(GameId, N, M) when is_integer(N), is_integer(M) ->
-    {ok,Pid} = pid(GameId),
+    {ok, Pid} = pid(GameId),
     gen_server:call(Pid, {random, N, M}).
 
 
@@ -53,6 +69,11 @@ handle_call({random, N}, _From, State = #state{}) ->
 handle_call({random, N, M}, _From, State = #state{}) ->
     RandValue = random_inner(N, M),
     {reply, RandValue, State};
+handle_call({seed_put, Seed}, _From, State = #state{}) ->
+    {reply, rand:seed_put(Seed), State};
+handle_call(seed_get, _From, State = #state{}) ->
+    {reply, rand:get_seed(), State};
+
 handle_call(_Request, _From, State = #state{}) ->
     {reply, ok, State}.
 
@@ -83,3 +104,5 @@ random_inner(Same, Same) -> Same;
 random_inner(Min, Max) when Max > 1 ->
     M = Min - 1,
     rand:uniform(Max - M) + M.
+
+

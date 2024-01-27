@@ -1,0 +1,3 @@
+%% encoding: UTF-8
+{application,ra}.
+{modules,[ra_app,ra_game_logic,ra_sup]}.
