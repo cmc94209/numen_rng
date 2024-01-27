@@ -7,9 +7,12 @@ This project consists of two apps, rng and book_of_ra. rng is responsible for ge
    You must have [[http://erlang.org/download.html][Erlang/OTP 19.3]]
    git clone https://github.com/cmc94209/numen_rng.git
 ** Core Module
+    #+BEGIN_SRC shell
     rand.erl
     rng_generator.erl
     ra_game_logic.erl
+    #+END_SRC
+
 ** Code Snippet Description
     ** rand
       
