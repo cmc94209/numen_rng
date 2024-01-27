@@ -14,7 +14,16 @@ This project consists of two apps, rng and book_of_ra. rng is responsible for ge
     #+END_SRC
 
 ** Code Snippet Description
-    ** rand
+ #+BEGIN_SRC shell
+    # rand.erl
+        ./rebar3 ct
+
+    # rng_generator.erl
+        ./rebar3 ct
+
+    # rng_generator.erl
+         ./rebar3 ct
+ #+END_SRC
       
 ** Testing
 
