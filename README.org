@@ -3,7 +3,7 @@
 
 This project consists of two apps, rng and book_of_ra. rng is responsible for generating random numbers, and book_of_ra will call rng's apps to
  generate the grid.
-rng uses * exsplus *. Seed algorithm: * rand:seed_s(exsplus) *
+rng uses ** exsplus **. Seed algorithm: ** rand:seed_s(exsplus) **
 
 ** Quick Start
    You must have [[http://erlang.org/download.html][Erlang/OTP 19.3]]
