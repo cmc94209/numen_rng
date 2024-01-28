@@ -3,6 +3,7 @@
 -define(GAME_ID, bingo).
 -export([speaker_reads_number/0]).
 
+
 %% @doc
 speaker_reads_number() ->
     lists:foldl(fun(SequenceId,{SpeakNumbers,LastNumberList})->
@@ -17,5 +18,7 @@ speaker_reads_number() ->
 
 number_list()->
     lists:seq(1,75).
+
+
 
 
