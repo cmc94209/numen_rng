@@ -44,6 +44,7 @@ random(GameId, N) when is_integer(N) ->
     gen_server:call(Pid, {random, N}).
 
 %% Generate a (N-M) random number for the game
+-spec random(game_id(), integer(), integer()) -> integer().
 random(GameId, N, M) when is_integer(N), is_integer(M) ->
     {ok, Pid} = pid(GameId),
     gen_server:call(Pid, {random, N, M}).
