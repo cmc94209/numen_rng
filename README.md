@@ -20,7 +20,7 @@ git clone https://github.com/cmc94209/numen_rng.git
 
 ### init seed
 ```erlang
-        rand_algorithm:seed(exsplus).
+    rand_algorithm:seed(exsplus).
 ```
 
 ### gen random number
