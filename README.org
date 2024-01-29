@@ -15,6 +15,7 @@ rng uses ** exsplus **. Seed algorithm: ** rand:seed_s(exsplus) **
     rand.erl
     rng_generator.erl
     ra_game_logic.erl
+    rand_algorithm.erl
     #+END_SRC
 
 ** Testing

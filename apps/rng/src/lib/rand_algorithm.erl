@@ -103,7 +103,7 @@ seed_put(Seed) ->
 mk_alg(exsplus) ->
     {#{type => exsplus, max => ?UINT58MASK, next => fun exsplus_next/1,
         uniform => fun exsplus_uniform/1, uniform_n => fun exsplus_uniform/2},
-        fun exsplus_seed/1}。
+        fun exsplus_seed/1}.
 
 
 %% =====================================================================
