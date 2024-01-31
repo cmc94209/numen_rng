@@ -1,6 +1,5 @@
--module(bg_trace_helper).
+-module(trace_helper).
 
--include("bg_base_common.hrl").
 
 %%-ifdef(TEST).
 %%-define(TRACE_LOG(Msg), ct:pal(Msg)).
