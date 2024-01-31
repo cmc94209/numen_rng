@@ -29,6 +29,24 @@ git clone https://github.com/cmc94209/numen_rng.git
     rand_algorithm:random(Start,End).
 ```
 
+## code segment
+###  rand_algorithm
+```erlang
+init_seed(N) ->
+    N8 = N * 8,
+    <<I1:N8/unsigned-integer, I2:N8/unsigned-integer, I3:N8/unsigned-integer>> = crypto:strong_rand_bytes(N * 3),
+    Alg = mk_alg(),
+    Seed = {I1, I2, I3},
+    rand:seed({Alg, Seed}).
+
+
+mk_alg() ->
+    #{type => crypto,
+        bits => 64,
+        next => fun crypto:rand_plugin_next/1,
+        uniform => fun crypto:rand_plugin_uniform/1,
+        uniform_n => fun crypto:rand_plugin_uniform/2}.
+```
 
 
 ## Testing
