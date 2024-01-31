@@ -5,7 +5,8 @@
   {mod, {rng_app, []}},
   {applications,
    [kernel,
-    stdlib
+    stdlib,
+    crypto
    ]},
   {env,[]},
   {modules, []},
