@@ -55,7 +55,7 @@ random(Min, Max) when Max > 1 ->
 
 
 mk_alg() ->
-    #{type => crypto1,
+    #{type => crypto,
         bits => 64,
         next => fun crypto:rand_plugin_next/1,
         uniform => fun crypto:rand_plugin_uniform/1,
