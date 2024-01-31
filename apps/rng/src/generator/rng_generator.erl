@@ -57,6 +57,7 @@ start_link(GameId) ->
 
 init([GameId]) ->
     erlang:register(GameId, self()),
+    rand_algorithm:init_seed(),
     {ok, #state{game_id = GameId}}.
 
 handle_call({random, N}, _From, State = #state{}) ->
@@ -68,7 +69,7 @@ handle_call({random, N, M}, _From, State = #state{}) ->
 handle_call({seed_put, Seed}, _From, State = #state{}) ->
     {reply, rand:seed_put(Seed), State};
 handle_call(seed_get, _From, State = #state{}) ->
-    {reply, rand:get_seed(), State};
+    {reply, erlang:get(rand_seed), State};
 
 handle_call(_Request, _From, State = #state{}) ->
     {reply, ok, State}.

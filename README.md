@@ -6,7 +6,7 @@ generate the grid.
 rng use **exsplus**. Seed algorithm: **rand:seed_s(exsplus)**
 
 ## Quick Start
->You must have [Erlang/OTP 19.3](http://erlang.org/download.html)
+>You must have [Erlang/OTP 21](http://erlang.org/download.html)
 OS:centos7
 git clone https://github.com/cmc94209/numen_rng.git
 
@@ -20,13 +20,13 @@ git clone https://github.com/cmc94209/numen_rng.git
 
 ### init seed
 ```erlang
-    rand_algorithm:seed(exsplus).
+    rand_algorithm:init_seed().
 ```
 
 ### gen random number
 ```erlang
-    rand:uniform(Range).
-    rand:uniform(Start,End).
+    rand_algorithm:random(Range).
+    rand_algorithm:random(Start,End).
 ```
 
 
