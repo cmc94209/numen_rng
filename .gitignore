@@ -1,7 +1,6 @@
 _*
 .eunit
 *.o
-*.beam
 *.plt
 *.swp
 *.swo
