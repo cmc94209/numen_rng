@@ -29,8 +29,8 @@ git clone https://github.com/cmc94209/numen_rng.git
 
 ### gen random number
 ```erlang
-    rand_algorithm:random(Range).
-    rand_algorithm:random(Start,End).
+    rng_generator:random_inner(Range).
+    rng_generator:random_inner(Start,End).
 ```
 
 ## code segment
