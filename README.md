@@ -51,10 +51,10 @@ mk_alg() ->
         uniform => fun crypto:rand_plugin_uniform/1,
         uniform_n => fun crypto:rand_plugin_uniform/2}.
 ```
-
-
   
 
-
 ## Testing
-    ./rebar3 ct
+- test interface：
+  - rng_generator:random(game_book_of_ra,100).
+  - rng_generator:random(game_bingo,100).
+- ./rebar3 ct
