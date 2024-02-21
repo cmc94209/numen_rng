@@ -1,0 +1,1642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:erl="http://erlang.org" xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="../../../../doc/otp_doc.css" type="text/css">
+<title>Erlang -- SNMP Release Notes</title>
+</head>
+<body>
+<div id="container">
+<script id="js" type="text/javascript" language="JavaScript" src="../../../../doc/js/flipmenu/flipmenu.js"></script><script id="js2" type="text/javascript" src="../../../../doc/js/erlresolvelinks.js"></script><script language="JavaScript" type="text/javascript">
+            <!--
+              function getWinHeight() {
+                var myHeight = 0;
+                if( typeof( window.innerHeight ) == 'number' ) {
+                  //Non-IE
+                  myHeight = window.innerHeight;
+                } else if( document.documentElement && ( document.documentElement.clientWidth ||
+                                                         document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myHeight = document.documentElement.clientHeight;
+                } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myHeight = document.body.clientHeight;
+                }
+                return myHeight;
+              }
+
+              function setscrollpos() {
+                var objf=document.getElementById('loadscrollpos');
+                 document.getElementById("leftnav").scrollTop = objf.offsetTop - getWinHeight()/2;
+              }
+
+              function addEvent(obj, evType, fn){
+                if (obj.addEventListener){
+                obj.addEventListener(evType, fn, true);
+                return true;
+              } else if (obj.attachEvent){
+                var r = obj.attachEvent("on"+evType, fn);
+                return r;
+              } else {
+                return false;
+              }
+             }
+
+             addEvent(window, 'load', setscrollpos);
+
+             //--></script><div id="leftnav"><div class="innertube">
+<div class="erlang-logo-wrapper"><a href="../../../../doc/index.html"><img alt="Erlang Logo" src="../../../../doc/erlang-logo.png" class="erlang-logo"></a></div>
+<p class="section-title">Simple Network Management Protocol (SNMP)</p>
+<p class="section-subtitle">Release Notes</p>
+<p class="section-version">Version 5.2.11</p>
+<ul class="panel-sections">
+<li><a href="users_guide.html">User's Guide</a></li>
+<li><a href="index.html">Reference Manual</a></li>
+<li><a href="release_notes.html">Release Notes</a></li>
+<li><a href="../pdf/snmp-5.2.11.pdf">PDF</a></li>
+<li><a href="../../../../doc/index.html">Top</a></li>
+</ul>
+<ul class="expand-collapse-items">
+<li><a href="javascript:openAllFlips()">Expand All</a></li>
+<li><a href="javascript:closeAllFlips()">Contract All</a></li>
+</ul>
+<h3>Chapters</h3>
+<ul class="flipMenu" imagepath="../../../../doc/js/flipmenu"><li id="loadscrollpos" title="SNMP Release Notes" expanded="true">SNMP Release Notes<ul>
+<li><a href="notes.html">
+              Top of chapter
+            </a></li>
+<li title="SNMP 5.2.11"><a href="notes.html#snmp-5.2.11">SNMP 5.2.11</a></li>
+<li title="SNMP 5.2.10"><a href="notes.html#snmp-5.2.10">SNMP 5.2.10</a></li>
+<li title="SNMP 5.2.9"><a href="notes.html#snmp-5.2.9">SNMP 5.2.9</a></li>
+<li title="SNMP 5.2.8"><a href="notes.html#snmp-5.2.8">SNMP 5.2.8</a></li>
+<li title="SNMP 5.2.7"><a href="notes.html#snmp-5.2.7">SNMP 5.2.7</a></li>
+<li title="SNMP 5.2.6"><a href="notes.html#snmp-5.2.6">SNMP 5.2.6</a></li>
+<li title="SNMP 5.2.5"><a href="notes.html#snmp-5.2.5">SNMP 5.2.5</a></li>
+<li title="SNMP 5.2.4"><a href="notes.html#snmp-5.2.4">SNMP 5.2.4</a></li>
+<li title="SNMP 5.2.3"><a href="notes.html#snmp-5.2.3">SNMP 5.2.3</a></li>
+<li title="SNMP 5.2.2"><a href="notes.html#snmp-5.2.2">SNMP 5.2.2</a></li>
+<li title="SNMP 5.2.1"><a href="notes.html#snmp-5.2.1">SNMP 5.2.1</a></li>
+<li title="SNMP 5.2"><a href="notes.html#snmp-5.2">SNMP 5.2</a></li>
+<li title="SNMP 5.1.2"><a href="notes.html#snmp-5.1.2">SNMP 5.1.2</a></li>
+<li title="SNMP Development Toolkit 5.1.1"><a href="notes.html#snmp-development-toolkit-5.1.1">SNMP Development Toolkit 5.1.1</a></li>
+<li title="SNMP 5.1"><a href="notes.html#snmp-5.1">SNMP 5.1</a></li>
+<li title="SNMP 5.0"><a href="notes.html#snmp-5.0">SNMP 5.0</a></li>
+<li title="SNMP 4.25.1"><a href="notes.html#snmp-4.25.1">SNMP 4.25.1</a></li>
+<li title="SNMP Development Toolkit 4.25.0.1"><a href="notes.html#snmp-development-toolkit-4.25.0.1">SNMP Development Toolkit 4.25.0.1</a></li>
+<li title="SNMP Development Toolkit 4.25"><a href="notes.html#snmp-development-toolkit-4.25">SNMP Development Toolkit 4.25</a></li>
+<li title="SNMP Development Toolkit 4.24.2"><a href="notes.html#snmp-development-toolkit-4.24.2">SNMP Development Toolkit 4.24.2</a></li>
+<li title="SNMP Development Toolkit 4.24.1"><a href="notes.html#snmp-development-toolkit-4.24.1">SNMP Development Toolkit 4.24.1</a></li>
+<li title="SNMP Development Toolkit 4.24"><a href="notes.html#snmp-development-toolkit-4.24">SNMP Development Toolkit 4.24</a></li>
+<li title="SNMP Development Toolkit 4.23.1"><a href="notes.html#snmp-development-toolkit-4.23.1">SNMP Development Toolkit 4.23.1</a></li>
+<li title="SNMP Development Toolkit 4.23"><a href="notes.html#snmp-development-toolkit-4.23">SNMP Development Toolkit 4.23</a></li>
+<li title="SNMP Development Toolkit 4.22.1"><a href="notes.html#snmp-development-toolkit-4.22.1">SNMP Development Toolkit 4.22.1</a></li>
+<li title="SNMP Development Toolkit 4.22"><a href="notes.html#snmp-development-toolkit-4.22">SNMP Development Toolkit 4.22</a></li>
+<li title="SNMP Development Toolkit 4.21.7"><a href="notes.html#snmp-development-toolkit-4.21.7">SNMP Development Toolkit 4.21.7</a></li>
+<li title="SNMP Development Toolkit 4.21.6"><a href="notes.html#snmp-development-toolkit-4.21.6">SNMP Development Toolkit 4.21.6</a></li>
+<li title="SNMP Development Toolkit 4.21.5"><a href="notes.html#snmp-development-toolkit-4.21.5">SNMP Development Toolkit 4.21.5</a></li>
+<li title="SNMP Development Toolkit 4.21.4"><a href="notes.html#snmp-development-toolkit-4.21.4">SNMP Development Toolkit 4.21.4</a></li>
+<li title="SNMP Development Toolkit 4.21.3"><a href="notes.html#snmp-development-toolkit-4.21.3">SNMP Development Toolkit 4.21.3</a></li>
+<li title="SNMP Development Toolkit 4.21.2"><a href="notes.html#snmp-development-toolkit-4.21.2">SNMP Development Toolkit 4.21.2</a></li>
+<li title="SNMP Development Toolkit 4.21.1"><a href="notes.html#snmp-development-toolkit-4.21.1">SNMP Development Toolkit 4.21.1</a></li>
+<li title="SNMP Development Toolkit 4.21"><a href="notes.html#snmp-development-toolkit-4.21">SNMP Development Toolkit 4.21</a></li>
+<li title="SNMP Development Toolkit 4.20.1"><a href="notes.html#snmp-development-toolkit-4.20.1">SNMP Development Toolkit 4.20.1</a></li>
+<li title="SNMP Development Toolkit 4.20"><a href="notes.html#snmp-development-toolkit-4.20">SNMP Development Toolkit 4.20</a></li>
+</ul>
+</li></ul>
+</div></div>
+<div id="content">
+<div class="innertube">
+<h1>1 SNMP Release Notes</h1>
+  
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.11-id64201').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.11-id64201').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.11-id64201" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L37" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.11" href="#snmp-5.2.11">1.1 
+          SNMP 5.2.11</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64207').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64207').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id64207" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L39" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    The Snmp MIB compiler now allows using a
+	    TEXTUAL-CONVENTION type before defining it.</p>
+          <p>
+	    Own Id: OTP-14196 Aux Id: ERIERL-161 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.10-id64232').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.10-id64232').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.10-id64232" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L53" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.10" href="#snmp-5.2.10">1.2 
+          SNMP 5.2.10</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64239').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64239').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id64239" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L55" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    The example MIB EX1-MIB in the SNMP application has been
+	    corrected to match its example.</p>
+          <p>
+	    Own Id: OTP-14204 Aux Id: PR-1726 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.9-id100200').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.9-id100200').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.9-id100200" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L69" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.9" href="#snmp-5.2.9">1.3 
+          SNMP 5.2.9</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id100206').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id100206').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id100206" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L71" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+	    <p> Removed all old unused files in the documentation.
+	    </p>
+          <p>
+	    Own Id: OTP-14475 Aux Id: ERL-409, PR-1493 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.8-id100233').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.8-id100233').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.8-id100233" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L84" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.8" href="#snmp-5.2.8">1.4 
+          SNMP 5.2.8</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id100240').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id100240').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id100240" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L86" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    The <span class="code">recbuf</span> configuration option was not propagated
+	    correctly to the socket for the SNMP Manager.</p>
+          <p>
+	    Own Id: OTP-13372 Aux Id: ERIERL-73 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.7-id96160').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.7-id96160').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.7-id96160" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L100" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.7" href="#snmp-5.2.7">1.5 
+          SNMP 5.2.7</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id96167').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id96167').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id96167" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L102" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    A bug in the SNMP MIB compiler has been fixed. An
+	    AUGMENTS referring to a table defined later in the MIB
+	    did not work.</p>
+          <p>
+	    Own Id: OTP-13014 Aux Id: ERL-375 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.6-id96195').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.6-id96195').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.6-id96195" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L117" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.6" href="#snmp-5.2.6">1.6 
+          SNMP 5.2.6</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id96202').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id96202').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id96202" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L119" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+	    <p>Internal code change: Calls to <span class="code">catch</span> followed
+	    by a call to <span class="code">erlang:get_stacktrace/0</span> has been
+	    rewritten to use <span class="code">try</span> instead of <span class="code">catch</span> to
+	    make the code future-proof.</p>
+          <p>
+	    Own Id: OTP-14400</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.5-id96245').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.5-id96245').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.5-id96245" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L134" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.5" href="#snmp-5.2.5">1.7 
+          SNMP 5.2.5</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id96252').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id96252').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id96252" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L136" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    The SNMP MIB compiler has been fixed to compile MIBS with
+	    refinements on user types such as in RFC 4669
+	    RADIUS-AUTH-SERVER-MIB.mib. Problem reported and
+	    researched by Kenneth Lakin and Daniel Goertzen.</p>
+          <p>
+	    See also: https://bugs.erlang.org/browse/ERL-325</p>
+          <p>
+	    Own Id: OTP-14145 Aux Id: ERL-325 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.4-id78120').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.4-id78120').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.4-id78120" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L154" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.4" href="#snmp-5.2.4">1.8 
+          SNMP 5.2.4</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id78127').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id78127').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id78127" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L156" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+	    <p> Correct bugs when path to mib or idl spec files
+	    contains UTF-8 characters. </p>
+          <p>
+	    Own Id: OTP-13718 Aux Id: ERL-179 </p>
+        </li>
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id78153').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id78153').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id78153" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L168" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Solves snmp config string handling as reported by ERL-164
+	    and solved by PR-1100</p>
+          <p>
+	    Own Id: OTP-13706</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.3-id78180').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.3-id78180').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.3-id78180" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L182" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.3" href="#snmp-5.2.3">1.9 
+          SNMP 5.2.3</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id78188').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id78188').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id78188" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L184" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Internal changes</p>
+          <p>
+	    Own Id: OTP-13551</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.2-id78215').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.2-id78215').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.2-id78215" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L197" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.2" href="#snmp-5.2.2">1.10 
+          SNMP 5.2.2</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id78222').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id78222').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id78222" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L199" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Snmp agent now properly handles <span class="code">vacmViewTreeFamily</span>
+	    masks.</p>
+          <p>
+	    Own Id: OTP-13264</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2.1-id67914').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2.1-id67914').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2.1-id67914" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L213" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2.1" href="#snmp-5.2.1">1.11 
+          SNMP 5.2.1</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id67922').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id67922').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id67922" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L215" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Small documentation fixes</p>
+          <p>
+	    Own Id: OTP-13017</p>
+        </li>
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id67948').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id67948').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id67948" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L227" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Update configuration check of imask ( list of ones and
+	    zeros) to allow the empty list.</p>
+          <p>
+	    Own Id: OTP-13101</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.2-id67975').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.2-id67975').style.visibility = 'hidden';"><span id="ghlink-snmp-5.2-id67975" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L241" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.2" href="#snmp-5.2">1.12 
+          SNMP 5.2</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id67983').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id67983').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id67983" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L243" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+	    <p> The runtime dependencies in the application resource
+	    file have been updated. </p>
+          <p>
+	    Own Id: OTP-12762</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.1.2-id68010').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.1.2-id68010').style.visibility = 'hidden';"><span id="ghlink-snmp-5.1.2-id68010" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L256" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.1.2" href="#snmp-5.1.2">1.13 
+          SNMP 5.1.2</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id68018').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id68018').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id68018" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L258" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    A bug in the SNMP Agent has been corrected; when opening
+	    a port using the command line argument -snmpa_fd the Port
+	    should be 0 when calling gen_udp:open.</p>
+          <p>
+	    A bug in the SNMP manager has been corrected; it should
+	    not look at the -snmp_fd command line argument, but
+	    instead at -snmpm_fd.</p>
+          <p>
+	    Own Id: OTP-12669 Aux Id: seq12841 </p>
+        </li>
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id68049').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id68049').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id68049" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L276" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Improved cryptocraphic capability.</p>
+          <p>
+	    Own Id: OTP-12452</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-5.1.1-id64924').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-5.1.1-id64924').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-5.1.1-id64924" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L289" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-5.1.1" href="#snmp-development-toolkit-5.1.1">1.14 
+          SNMP Development Toolkit 5.1.1</a></span></h3>
+    
+    <p>Version 5.1.1 supports code replacement in runtime from/to
+    version 5.1. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id64937').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id64937').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id64937" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L294" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[compiler] Refinement of type Opaque was not allowed. </p>
+          <p>MIB constructs such as '<span class="code">SYNTAX Opaque (SIZE(0..65535))</span>'
+	  was previously not allowed,
+	  see the standard <span class="code">ALARM-MIB</span> for eaxmple. </p>
+          <p>Own Id: OTP-12066</p>
+          <p>Aux Id: Seq 12669</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64982').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64982').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id64982" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L314" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id65001').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id65001').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id65001" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L332" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+   
+
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-5.1-id65023').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.1-id65023').style.visibility = 'hidden';"><span id="ghlink-snmp-5.1-id65023" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L352" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.1" href="#snmp-5.1">1.15 
+          SNMP 5.1</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id65031').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id65031').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id65031" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L354" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    The SNMP manager has been enhanced with dual stack
+	    IPv4+IPv6, as the agent just was. The documentation is
+	    also now updated for both the agent and the manager.</p>
+          <p>
+	    Own Id: OTP-12108 Aux Id: OTP-12020 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-5.0-id67775').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-5.0-id67775').style.visibility = 'hidden';"><span id="ghlink-snmp-5.0-id67775" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L369" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-5.0" href="#snmp-5.0">1.16 
+          SNMP 5.0</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id67782').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id67782').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id67782" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L371" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and New Features</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    SNMP has been improved to handle IPv6. The agent can
+	    handle dual stack IPv4 + IPv6, but not yet the manager.
+	    The documentation also still lags behind... If you do
+	    such advanced stuff like writing a custom net_if module,
+	    the interface for it has changed, but other than that
+	    SNMP is backwards compatible.</p>
+          <p>
+	    *** POTENTIAL INCOMPATIBILITY ***</p>
+          <p>
+	    Own Id: OTP-12020 Aux Id: OTP-11518 </p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-4.25.1-id67816').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-4.25.1-id67816').style.visibility = 'hidden';"><span id="ghlink-snmp-4.25.1-id67816" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L391" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-4.25.1" href="#snmp-4.25.1">1.17 
+          SNMP 4.25.1</a></span></h3>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id67823').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id67823').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id67823" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L393" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      <ul>
+        <li>
+          <p>
+	    Application upgrade (appup) files are corrected for the
+	    following applications: </p>
+          <p>
+	    <span class="code">asn1, common_test, compiler, crypto, debugger,
+	    dialyzer, edoc, eldap, erl_docgen, et, eunit, gs, hipe,
+	    inets, observer, odbc, os_mon, otp_mibs, parsetools,
+	    percept, public_key, reltool, runtime_tools, ssh,
+	    syntax_tools, test_server, tools, typer, webtool, wx,
+	    xmerl</span></p>
+          <p>
+	    A new test utility for testing appup files is added to
+	    test_server. This is now used by most applications in
+	    OTP.</p>
+          <p>
+	    (Thanks to Tobias Schlager)</p>
+          <p>
+	    Own Id: OTP-11744</p>
+        </li>
+      </ul>
+    
+
+
+
+<h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.25.0.1-id67868').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.25.0.1-id67868').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.25.0.1-id67868" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L420" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.25.0.1" href="#snmp-development-toolkit-4.25.0.1">1.18 
+          SNMP Development Toolkit 4.25.0.1</a></span></h3>
+    
+    <p>Version 4.25.0.1 supports code replacement in runtime from/to
+    version 4.25, 4.24.2, 4.24.1 and 4.24. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id67881').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id67881').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id67881" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L425" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>Updated doc files to utf8. </p>
+          <p>Own Id: OTP-10907</p>
+        </li>
+
+        <li>
+          <p>Fixed test suite to support UTF-8 paths. </p>
+          <p>Own Id: OTP-10877</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id101830').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id101830').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id101830" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L446" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id101852').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id101852').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id101852" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L474" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.25-id101874').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.25-id101874').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.25-id101874" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L494" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.25" href="#snmp-development-toolkit-4.25">1.19 
+          SNMP Development Toolkit 4.25</a></span></h3>
+    
+    <p>Version 4.25 supports code replacement in runtime from/to
+    version 4.24.2, 4.24.1, 4.24, 4.23.1 and 4.23. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id101888').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id101888').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id101888" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L499" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Enable SNMP to create missing database directories. </p>
+	  <p>Add
+	  <span class="bold_code bc-15"><a href="snmp_app.html#db_init_error">{db_init_error, create_db_and_dir}</a></span> option to SNMP
+	  <span class="bold_code bc-15"><a href="snmp_app.html#manager_opts_and_types">manager</a></span>
+	  and
+	  <span class="bold_code bc-15"><a href="snmp_app.html#agent_opts_and_types">agent</a></span>.
+	  This allows them to create any missing parent directories for
+	  <span class="code">db_dir</span>, rather than treating any missing directories
+	  as a fatal error.
+	  The default for <span class="code">db_init_error</span>, which is <span class="code">terminate</span>,
+	  is unchanged. </p>
+	  <p>Steve Vinoski</p>
+          <p>Own Id: OTP-11352</p>
+        </li>
+
+        <li>
+          <p>[manager] Improved handling of unexpected return values from
+	  <span class="bold_code bc-19"><a href="snmpm_user.html">snmpm_user</a></span>
+	  callback functions. </p>
+	  <p>Violations of the documented API (crashes or invalid return
+	  values) will now result in an error message. </p>
+          <p>Own Id: OTP-11307</p>
+        </li>
+
+        <li>
+          <p>Add (atl) log conversion block option. </p>
+	  <p>It is now possible to request that the Audit Trail Log should
+	  be blocked during conversion (<span class="code">log_to_txt</span> or <span class="code">log_to_io</span>).
+	  This could be usefull when coverting an entire large log (when
+	  there is a chance it may otherwise wrap during conversion). </p>
+	  <p>See
+	  agent
+	  <span class="bold_code bc-15"><a href="snmpa.html#log_to_txt">log_to_txt</a></span> and
+	  <span class="bold_code bc-15"><a href="snmpa.html#log_to_io">log_to_io</a></span> and also
+	  manager
+	  <span class="bold_code bc-15"><a href="snmpm.html#log_to_txt">log_to_txt</a></span> and
+	  <span class="bold_code bc-15"><a href="snmpm.html#log_to_io">log_to_io</a></span>
+	  for details. </p>
+          <p>Own Id: OTP-11396</p>
+          <p>Own Id: seq12433</p>
+        </li>
+
+        <li>
+          <p>When converting an Audit Trail Log to text, a corrupt
+	  log entry could cause the entire conversion to fail. </p>
+	  <p>Also, for a log with sequence numbers, failing to
+	  decode a log entry would cause the conversion to fail
+	  (not because of the failed decode, but because of the
+	  failure to write the error message). </p>
+          <p>Own Id: OTP-111453</p>
+          <p>Aux Id: Seq 12459</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id74984').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id74984').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id74984" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L565" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>Wrong block cypher type used for AES ('aes_cbf128'
+	  instead of 'aes_cfb128') when performing AES block
+	  encrypt/decrypt which breaks SNMP usmAesCfb128Protocol
+	  in agent and manager. </p>
+          <p>Own Id: OTP-11412</p>
+        </li>
+
+        <li>
+          <p>[manager] When performing the AES encryption, invalid values for
+	  the EngineBoots and EngineTime was used. </p>
+	  <p>The values of the local agent was used, which would have produced
+	  "some" values if an agent was actually running.
+	  If not it would have caused a crash. </p>
+	  <p>Own Id: OTP-11413</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id61935').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id61935').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id61935" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L593" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.24.2-id61958').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.24.2-id61958').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.24.2-id61958" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L613" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.24.2" href="#snmp-development-toolkit-4.24.2">1.20 
+          SNMP Development Toolkit 4.24.2</a></span></h3>
+    
+    <p>Version 4.24.2 supports code replacement in runtime from/to
+    version 4.24.1, 4.24, 4.23.1 and 4.23. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id61971').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id61971').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id61971" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L618" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Improved documentation for the functions for
+	  loading and unloading mibs,
+	  see <span class="bold_code bc-15"><a href="snmpa.html#load_mibs">load_mibs</a></span> and
+	  <span class="bold_code bc-15"><a href="snmpa.html#unload_mibs">unload_mibs</a></span> for
+	  more info. </p>
+          <p>Also added new functions for loading and unloading a single mib,
+	  see <span class="bold_code bc-15"><a href="snmpa.html#load_mib">load_mib</a></span> and
+	  <span class="bold_code bc-15"><a href="snmpa.html#unload_mib">unload_mib</a></span> for
+	  more info. </p>
+          <p>Own Id: OTP-11216</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id62029').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id62029').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id62029" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L642" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id69695').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id69695').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id69695" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L660" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.24.1-id69717').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.24.1-id69717').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.24.1-id69717" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L680" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.24.1" href="#snmp-development-toolkit-4.24.1">1.21 
+          SNMP Development Toolkit 4.24.1</a></span></h3>
+    
+    <p>Version 4.24.1 supports code replacement in runtime from/to
+    version 4.24, 4.23.1 and 4.23. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id69730').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id69730').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id69730" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L685" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id69748').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id69748').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id69748" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L701" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Reading the value of the vacmViewTreeFamilyMask returns
+	  it in the wrong (internal bitlist) format. </p>
+	  <p>The vacmViewTreeFamilyMask is defined as a bit string in the MIB
+	  (OCTET STRING). Internally a bitlist (list of 1's and 0's,
+	  see <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#vacm">vacm config file</a></span>
+	  for more info) is used.
+	  However, the MIB implementation assumed the latter, effectively
+	  rendering all attempts to read/set masks via SNMP unsuccessful. </p>
+	  <p>Since the mask is used in hot paths (e.g. access permission checks
+	  for each SNMP operation, the bitlist representation of the mask has
+	  benefits (e.g. faster processing). Reading/writing the view mask
+	  objects is less time-critical. Therefore, to fix the issue, convert
+	  between the bitlist (internal) representation and bitstring
+	  (external) when the vacmViewTreeFamilyMask objects are accessed. </p>
+	  <p>Also, the check of the vacm config file was invalid with
+	  regard to the mask value. It was assumed to be a proper oid, which
+	  is not strictly the case (see bitlist above). </p>
+          <p>Own Id: OTP-11177</p>
+	  <p>Stefan Zegenhagen</p>
+        </li>
+
+        <li>
+          <p>[agent] The counter increment function in the local-db was
+	  incorrect. It did not handle counter wrap correctly. </p>
+          <p>Own Id: OTP-11192</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id69819').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id69819').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id69819" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L740" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.24-id98288').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.24-id98288').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.24-id98288" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L760" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.24" href="#snmp-development-toolkit-4.24">1.22 
+          SNMP Development Toolkit 4.24</a></span></h3>
+    
+    <p>Version 4.24 supports code replacement in runtime from/to
+    version 4.23.1 and 4.23. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id98300').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id98300').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id98300" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L765" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent,manager] Updated to support the new crypto interface. </p>
+          <p>Own Id: OTP-11009</p>
+        </li>
+
+        <li>
+          <p>[agent] Introduced a documented behaviour for the mib-server
+	  <span class="bold_code bc-19"><a href="snmpa_mib_data.html">mib-data backend</a></span>.
+	  At present only the default module (<span class="code">snmpa_mib_data_tttn</span>) is
+	  provided. </p>
+	  <p>A config option for the (agent)
+	  <span class="bold_code bc-15"><a href="snmp_config.html#agent_mib_server">mib-servers</a></span>
+	  mib-data backend module has been added to the agent config options,
+	  <span class="bold_code bc-15"><a href="snmp_config.html#agent_ms_data_module">data_module</a></span>. </p>
+	  <p>Own Id: OTP-11101</p>
+        </li>
+
+        <li>
+          <p>[agent] Introduced a documented behaviour for the
+	  <span class="bold_code bc-19"><a href="snmpa_mib_storage.html">mib storage</a></span>.
+	  At present there are three simple modules
+	  (<span class="code">snmpa_mib_storage_ets</span>, <span class="code">snmpa_mib_storage_dets</span> and
+	  <span class="code">snmpa_mib_storage_mnesia</span>) implementing this behaviour,
+	  provided with the app. </p>
+	  <p>A config option for the (agent)
+	  <span class="bold_code bc-15"><a href="snmp_config.html#agent_mib_storage">mib storage</a></span>
+	  has been added to the agent config options. </p>
+	  <p>Own Id: OTP-11107</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id98408').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id98408').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id98408" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L806" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id98039').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id98039').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id98039" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L822" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.23.1-id98062').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.23.1-id98062').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.23.1-id98062" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L842" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.23.1" href="#snmp-development-toolkit-4.23.1">1.23 
+          SNMP Development Toolkit 4.23.1</a></span></h3>
+    
+    <p>Version 4.23.1 supports code replacement in runtime from/to
+    version 4.23. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id98075').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id98075').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id98075" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L847" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id98096').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id98096').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id98096" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L873" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[compiler] Now handles MIBs importing the pesudotype BITS. </p>
+          <p>Own Id: OTP-10799</p>
+        </li>
+
+        <li>
+          <p>[compiler] The MIB compiler could not handle a table index
+	  that was defined later in the MIB. </p>
+          <p>Own Id: OTP-10808</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id98138').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id98138').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id98138" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L895" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.23-id98160').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.23-id98160').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.23-id98160" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L915" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.23" href="#snmp-development-toolkit-4.23">1.24 
+          SNMP Development Toolkit 4.23</a></span></h3>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id98173').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id98173').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id98173" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L923" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[manager] Polish return values of snmpm_user_default according
+	  to snmpm_user doc.</p>
+	  <p>Luca Favatella</p>
+	  <p>Own Id: OTP-10671</p>
+        </li>
+
+        <li>
+          <p>[agent] Remove runtime warning in snmpa_agent because of
+	  tuple fun usage. </p>
+	  <p>Luca Favatella</p>
+	  <p>Own Id: OTP-10672</p>
+        </li>
+
+        <li>
+          <p>[manager] SNMP manager performance optimization. </p>
+	  <p>Ivan Dubovik</p>
+	  <p>Own Id: OTP-10673</p>
+        </li>
+
+      </ul>
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id61309').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id61309').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id61309" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L953" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+      
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id61329').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id61329').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id61329" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L973" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[manager] The old Addr-and-Port based API functions, previously
+	  long deprecated and marked for deletion in R16B, has now been
+	  removed. </p>
+          <p>Own Id: OTP-10027</p>
+        </li>
+
+      </ul>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.22.1-id61364').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.22.1-id61364').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.22.1-id61364" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L993" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.22.1" href="#snmp-development-toolkit-4.22.1">1.25 
+          SNMP Development Toolkit 4.22.1</a></span></h3>
+    
+    <p>Version 4.22.1 supports code replacement in runtime from/to
+    version 4.22, 4.21.7 4.21.6 4.21.5, 4.21.4, 4.21.3, 4.21.2, 4.21.1 and
+    4.21. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id61377').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id61377').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id61377" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L999" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Sematic fixes to SNMP-USER-BASED-SM-MIB.
+	  The semantics allow the <span class="code">usmUserAuthKeyChange</span> and
+	  <span class="code">usmUserPrivKeyChange</span> objects to be written to in the
+	  same set requests that also creates and clones the user.
+	  This was not possible beforehand, causing test tools checking
+	  semantic SNMPv3 behaviour to fail on a lot of test cases. </p>
+	  <p>Furthermore, once the user has been cloned by writing to an
+	  instance of <span class="code">usmUserCloneFrom</span>, further set-operations to
+	  the same object will not return an error, but be no-ops.
+	  Especially, it must be avoided to copy security parameters
+	  again (possibly even from a different user). </p>
+	  <p>Stefan Zegenhagen</p>
+	  <p>Own Id: OTP-10166</p>
+        </li>
+
+        <li>
+          <p>[agent] Errors in <span class="code">vacmAccessTable</span> RowStatus handling.
+	  There are problems with the handling of vacmAccessTableStatus
+	  that cause some SNMP test suites to report errors.
+	  Most notably, erroneous set operations frequently cause "genErr"
+	  errors to be returned. These "genErr" errors are usually caused
+	  by badmatch exceptions coming from
+	  <span class="code">{ok, Row} = snmpa_vacm:get_row(RowIndex)</span>
+	  if the row does not exist. </p>
+	  <p>The semantics of the RowStatus handling in that table has
+	  been adjusted to be compliant with the RowStatus
+	  textual description of SNPMv2-TC MIB. </p>
+	  <p>Stefan Zegenhagen</p>
+	  <p>Own Id: OTP-10164</p>
+        </li>
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id92322').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id92322').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id92322" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1041" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Fix walk over vacmAccessTable.
+	  Fix the get_next implementation of vacmAccessTable to
+	  return all table entries. </p>
+	  <p>The get_next implementation of vacmAccessTable did not return
+	  all available table data. Instead, it only returned the first
+	  column for each row, and all columns for the last row available. </p>
+	  <p>Stefan Zegenhagen</p>
+          <p>Own Id: OTP-10165</p>
+        </li>
+
+        <li>
+          <p>[manager]
+	  <span class="bold_code bc-15"><a href="snmpm.html#log_to_io">snmpm:log_to_io/6</a></span>
+	  did not use the LogName argument. </p>
+          <p>Own Id: OTP-10066</p>
+        </li>
+
+        <li>
+          <p>Incorrect TimeTicks decode. Also bad handling of
+	  invalid encode (value outside of value range) for both
+	  <span class="code">TimeTicks</span> and <span class="code">Unsigned32</span>. </p>
+          <p>Own Id: OTP-10132</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id92398').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id92398').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id92398" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1077" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.22-id92416').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.22-id92416').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.22-id92416" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1085" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.22" href="#snmp-development-toolkit-4.22">1.26 
+          SNMP Development Toolkit 4.22</a></span></h3>
+    
+    <p>Version 4.22 supports code replacement in runtime from/to
+    version 4.21.7 4.21.6 4.21.5, 4.21.4, 4.21.3, 4.21.2, 4.21.1 and 4.21. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id62484').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id62484').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id62484" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1090" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[compiler] The table information the MIB compiler provides with
+	  augmented tables has been extended with <span class="code">nbr_of_cols</span>,
+	  <span class="code">first_accessible</span> and <span class="code">not_accessible</span>. </p>
+          <p>Own Id: OTP-9969</p>
+        </li>
+
+        <li>
+          <p>Added the <span class="code">log_to_io</span> audit-trail-log converter function
+	  to the api modules of both the
+	  <span class="bold_code bc-15"><a href="snmpm.html#log_to_io">manager</a></span>
+	  and
+	  <span class="bold_code bc-15"><a href="snmpa.html#log_to_io">agent</a></span>. </p>
+          <p>Own Id: OTP-9940</p>
+        </li>
+
+        <li>
+          <p>[manager] Introduced a new transport module,
+	  <span class="code">snmpm_net_if_mt</span>,
+	  which handles all incomming and outgoing
+	  traffic in newly created processes. The message/request is
+	  processed and then the process exits. </p>
+          <p>Own Id: OTP-9876</p>
+	</li>
+
+        <li>
+          <p>[agent] Documenting previously existing but undocumented function,
+	  <span class="bold_code bc-15"><a href="snmp_generic.html#get_table_info">snmp_generic:get_table_info/2</a></span>. </p>
+	  <p>Own Id: OTP-9942</p>
+        </li>
+
+        <li>
+          <p>[agent] Improve error handling while reading agent config files.
+	  Some files contain mandatory information and is therefor themself
+	  mandatory. </p>
+	  <p>Own Id: OTP-9943</p>
+        </li>
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id62599').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id62599').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id62599" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1138" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+      
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id62619').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id62619').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id62619" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1159" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.7-id64690').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.7-id64690').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.7-id64690" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1167" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.7" href="#snmp-development-toolkit-4.21.7">1.27 
+          SNMP Development Toolkit 4.21.7</a></span></h3>
+    
+    <p>Version 4.21.7 supports code replacement in runtime from/to
+    version 4.21.6, 4.21.5, 4.21.4, 4.21.3, 4.21.2, 4.21.1, 4.21, 4.20.1 and
+    4.20. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id64704').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id64704').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id64704" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1173" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      <p>-</p>
+
+      
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64724').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64724').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id64724" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1196" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      
+
+      <ul>
+        <li>
+          <p>[agent] Simultaneous
+          <span class="bold_code bc-15"><a href="snmpa.html#backup">snmpa:backup/1,2</a></span>
+          calls can interfere.
+          The master agent did not check if a backup was already in
+          progress when a backup request was accepted. </p>
+          <p>Own Id: OTP-9884</p>
+          <p>Aux Id: Seq 11995</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id64765').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id64765').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id64765" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1217" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.6-id64783').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.6-id64783').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.6-id64783" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1225" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.6" href="#snmp-development-toolkit-4.21.6">1.28 
+          SNMP Development Toolkit 4.21.6</a></span></h3>
+    
+    <p>Version 4.21.6 supports code replacement in runtime from/to
+    version 4.21.5, 4.21.4, 4.21.3, 4.21.2, 4.21.1, 4.21, 4.20.1 and
+    4.20. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id64796').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id64796').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id64796" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1231" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      
+
+      <ul>
+        <li>
+          <p>[agent] DoS attack using GET-BULK with large value of
+          MaxRepetitions.
+          A preventive method has been implementing by simply
+          limit the number of varbinds that can be included in
+          a Get-BULK response message. This is specified by the
+          new config option,
+          <span class="bold_code bc-15"><a href="snmp_app.html#agent_gb_max_vbs">gb_max_vbs</a></span>.
+          </p>
+          <p>Own Id: OTP-9700</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64835').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64835').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id64835" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1254" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      
+
+      <ul>
+        <li>
+          <p>[agent] Mib server cache gclimit update function incorrectly calls
+          age update function.
+          The gclimit update function,
+          <span class="bold_code bc-15"><a href="snmpa.html#update_mibs_cache_gclimit">update_mibs_cache_gclimit/1</a></span>,
+          <strong>incorrectly</strong> called the age update function,
+          <span class="bold_code bc-15"><a href="snmpa.html#update_mibs_cache_age">update_mibs_cache_age/2</a></span>. </p>
+          <p>Johan Claesson</p>
+          <p>Own Id: OTP-9868</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id64394').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id64394').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id64394" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1276" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.5-id64411').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.5-id64411').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.5-id64411" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1284" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.5" href="#snmp-development-toolkit-4.21.5">1.29 
+          SNMP Development Toolkit 4.21.5</a></span></h3>
+    
+    <p>Version 4.21.5 supports code replacement in runtime from/to
+      version 4.21.4, 4.21.3, 4.21.2, 4.21.1, 4.21, 4.20.1 and 4.20. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id64425').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id64425').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id64425" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1289" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Removed (more) use of old style tuple funs. </p>
+          <p>Own Id: OTP-9783</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64455').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id64455').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id64455" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1305" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Repeated vacm table dumping fails due to file name
+          conflict. When dumping the vacm table to disk, a temoporary
+          file with a fixed name was used. If the table dumping
+          (snmpa_vacm:dump_table/0) was initiated from several different
+          processes in rapid succesion, the dumping could fail because the
+          different processes was simultaniously trying to write to the
+          same file. This problem has been eliminated by creating a unique
+          name for the temporary file. </p>
+          <p>Own Id: OTP-9851</p>
+          <p>Aux Id: Seq 11980</p>
+        </li>
+
+      </ul>
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id64493').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id64493').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id64493" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1328" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.4-id68463').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.4-id68463').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.4-id68463" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1347" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.4" href="#snmp-development-toolkit-4.21.4">1.30 
+          SNMP Development Toolkit 4.21.4</a></span></h3>
+    
+    <p>This version has never been released for R14B.</p>
+    <p>Version 4.21.4 supports code replacement in runtime from/to
+      version 4.21.3, 4.21.2, 4.21.1, 4.21, 4.20.1, 4.20 and 4.19. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id68480').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id68480').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id68480" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1353" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id68499').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id68499').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id68499" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1370" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Removed use of old style tuple funs. </p>
+          <p>Own Id: OTP-9779</p>
+        </li>
+
+      </ul>
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id68529').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id68529').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id68529" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1385" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.3-id68550').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.3-id68550').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.3-id68550" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1404" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.3" href="#snmp-development-toolkit-4.21.3">1.31 
+          SNMP Development Toolkit 4.21.3</a></span></h3>
+    
+    <p>Version 4.21.3 supports code replacement in runtime from/to
+      version 4.21.2, 4.21.1, 4.21, 4.20.1, 4.20 and 4.19. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id68563').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id68563').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id68563" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1409" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[compiler] Improved version info printout from the
+	  <span class="bold_code bc-16"><a href="snmpc(command).html">MIB compiler frontend escript</a></span>. </p>
+          <p>Own Id: OTP-9618</p>
+        </li>
+
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id68599').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id68599').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id68599" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1426" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[agent] Version 4.20 introduced a change that broke trap
+	  sending from subagents. Due to a bug in the test code,
+	  this was not discovered, until that bug was fixed. </p>
+          <p>Own Id: OTP-9745</p>
+        </li>
+
+        <li>
+          <p>[agent] When sending an error message (reply) regarding
+	  <span class="code">snmpUnknownPDUHandlers</span>, the agent used the wrong OID. </p>
+          <p>Own Id: OTP-9747</p>
+        </li>
+
+        <li>
+          <p>[compiler] Fix the <span class="code">--warnings/--W</span> option parsing in the
+          <span class="bold_code bc-15"><a href="snmpc(command).html#option_warnings">snmpc</a></span>
+          wrapper (e)script.
+          The short warning option was incorrectly <span class="code">--w</span>, instead
+          of as documented <span class="code">--W</span>. This has now been corrected. </p>
+          <p>*** POTENTIAL INCOMPATIBILITY ***</p>
+          <p>Tuncer Ayaz</p>
+          <p>Own Id: OTP-9718</p>
+        </li>
+
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id105722').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id105722').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id105722" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1461" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>[compiler] The short warning option has been changed from
+          <span class="code">--w</span> to <span class="code">--W</span> to comply with the documentation. </p>
+          <p>Tuncer Ayaz</p>
+          <p>Own Id: OTP-9718</p>
+        </li>
+
+      </ul>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.2-id105767').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.2-id105767').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.2-id105767" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1481" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.2" href="#snmp-development-toolkit-4.21.2">1.32 
+          SNMP Development Toolkit 4.21.2</a></span></h3>
+    
+    <p>Version 4.21.2 supports code replacement in runtime from/to
+      version 4.21.1, 4.21, 4.20.1, 4.20 and 4.19. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id105781').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id105781').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id105781" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1486" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      <p>-</p>
+
+
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id105799').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id105799').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id105799" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1504" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>Bad note store GC timer deactivation.
+	  Wrong field in the state record was set (timeout instead active). </p>
+          <p>Stefan Grundmann</p>
+          <p>Own Id: OTP-9690</p>
+        </li>
+
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id105834').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id105834').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id105834" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1522" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21.1-id105851').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21.1-id105851').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21.1-id105851" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1530" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21.1" href="#snmp-development-toolkit-4.21.1">1.33 
+          SNMP Development Toolkit 4.21.1</a></span></h3>
+    
+    <p>Version 4.21.1 supports code replacement in runtime from/to
+      version 4.20.1, 4.20 and 4.19. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id105864').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id105864').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id105864" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1535" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+      <ul>
+        <li>
+          <p>[compiler] Used wrong variable name (for
+	  warnings-as-errors variable), which caused the
+	  compiler to crash when using the snmpc (e)script. </p>
+	  <p>Also added the option
+	  <span class="bold_code bc-15"><a href="snmpc(command).html#option_werror">--Werror</a></span>
+	  for the SNMP MIB compiler (escript) frontend (to mimic
+	  <span class="bold_code bc-18"><a href="javascript:erlhref('../../../../doc/../','erts','erlc.html');">erlc</a></span>),
+	  which specifies whether warnings should be treated as errors. </p>
+          <p>Own Id: OTP-9447</p>
+        </li>
+
+        <li>
+          <p>[agent] Some very minor debugging improvements. </p>
+          <p>Own Id: OTP-9446</p>
+        </li>
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id103613').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id103613').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id103613" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1561" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+      <p>-</p>
+
+
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id103631').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id103631').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id103631" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1578" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.21-id103648').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.21-id103648').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.21-id103648" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1586" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.21" href="#snmp-development-toolkit-4.21">1.34 
+          SNMP Development Toolkit 4.21</a></span></h3>
+    
+    <p>Version 4.21 supports code replacement in runtime from/to
+      version 4.20.1, 4.20 and 4.19. </p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id103661').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id103661').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id103661" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1591" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+      <ul>
+        <li>
+          <p>[manager] There was no way to specify transport domain.
+	  The transport domains was assumed to be IPv4 (transportDomainUdpIpv4).
+	  This has now been changed so that it can also be IPv6
+	  (transportDomainUdpIpv6).
+	  To facilitate this, the transport domain, <span class="code">tdomain</span>,
+	  is now a (new) valid option when
+	  <span class="bold_code bc-15"><a href="snmpm.html#register_agent">registering</a></span>
+	  a new agent (and
+	  <span class="bold_code bc-15"><a href="snmpm.html#update_agent_info">updating</a></span>
+	  agent info). </p>
+	  <p>This also mean that the transport behaviour has changed. </p>
+          <p>Own Id: OTP-9305</p>
+          <p>Aux Id: Seq 11847</p>
+        </li>
+
+        <li>
+          <p>[compiler] Added the option
+	  <span class="bold_code bc-15"><a href="snmpc.html#compile">warnings_as_errors</a></span>
+	  (for the SNMP MIB compiler (escript) frontend, the option
+	  <span class="bold_code bc-15"><a href="snmpc(command).html#option_wae">--wae</a></span> is used)
+	  which specifies whether warnings should be treated as errors. </p>
+          <p>Tuncer Ayaz</p>
+          <p>Own Id: OTP-9437</p>
+        </li>
+      </ul>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id103745').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id103745').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id103745" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1626" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>The snmp config tool could not handle (manager) audit trail config
+	  because the option seqno was not handled. </p>
+	  <p>Own Id: OTP-9354</p>
+	</li>
+
+        <li>
+          <p>[agent] The SNMP ACM cache was not properly updated when
+	  changes where made to the VACM security-to-group, access and
+	  view-tree-family tables. </p>
+	  <p>Own Id: OTP-9367</p>
+          <p>Aux Id: Seq 11858</p>
+	</li>
+
+        <li>
+          <p>Fixed install directory typo for man3. </p>
+	  <p>Peter Lemenkov</p>
+	  <p>Hans Ulrich Niedermann</p>
+	  <p>Own Id: OTP-9442</p>
+	</li>
+
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id98519').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id98519').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id98519" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1658" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.20.1-id98537').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.20.1-id98537').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.20.1-id98537" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1666" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.20.1" href="#snmp-development-toolkit-4.20.1">1.35 
+          SNMP Development Toolkit 4.20.1</a></span></h3>
+    
+    <p>Version 4.20.1 supports code replacement in runtime from/to
+      version 4.20, 4.19 and 4.18.</p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id98550').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id98550').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id98550" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1671" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+      <p>-</p>
+
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id98568').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id98568').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id98568" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1685" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+      <ul>
+        <li>
+          <p>[agent] Did not handle transport domains properly in some cases,
+	  for instance trap sending. </p>
+	  <p>Own Id: OTP-9400</p>
+	</li>
+
+        <li>
+          <p>[agent] Wrong default transport domain, snmpUDPDomain, instead
+	  of transportDomainUdpIpv4. </p>
+	  <p>Own Id: OTP-9425</p>
+          <p>Aux Id: Seq 11874</p>
+	</li>
+
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id98614').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id98614').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id98614" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1708" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+
+
+  <h3><span onMouseOver="document.getElementById('ghlink-snmp-development-toolkit-4.20-id98632').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-snmp-development-toolkit-4.20-id98632').style.visibility = 'hidden';"><span id="ghlink-snmp-development-toolkit-4.20-id98632" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1716" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="snmp-development-toolkit-4.20" href="#snmp-development-toolkit-4.20">1.36 
+          SNMP Development Toolkit 4.20</a></span></h3>
+    
+    <p>Version 4.20 supports code replacement in runtime from/to
+      version 4.19 and 4.18.</p>
+
+    <h4><span onMouseOver="document.getElementById('ghlink-improvements-and-new-features-id98645').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-improvements-and-new-features-id98645').style.visibility = 'hidden';"><span id="ghlink-improvements-and-new-features-id98645" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1721" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="improvements-and-new-features" href="#improvements-and-new-features">Improvements and new features</a></span></h4>
+      
+
+      <ul>
+        <li>
+          <p>[agent] Added support for sending traps to IPv6 targets. </p>
+	  <p>See the
+	  <span class="bold_code bc-15"><a href="snmp_agent_config_files.html#target_addr">target address config file</a></span>,
+	  the <span class="bold_code bc-15"><a href="snmpa_conf.html#target_addr_entry">target_addr_entry/11</a></span> function or
+	  <span class="bold_code bc-15"><a href="snmp_target_mib.html#add_addr">add_addr/11</a></span> for more info. </p>
+          <p>Own Id: OTP-9088</p>
+          <p>Aux Id: Seq 11790</p>
+	</li>
+
+
+        <li>
+          <p>[agent] To be able to handle multiple engine-id(s) when
+	  sending trap(s), the function
+          <span class="bold_code bc-15"><a href="snmp_community_mib.html#add_community">add_community/6</a></span> has been added. </p>
+          <p>Own Id: OTP-9119</p>
+          <p>Aux Id: Seq 11792</p>
+        </li>
+
+        <li>
+          <p>[manager] The API for snmp requests has been augmented to
+	  allow the caller to override some configuration. </p>
+	  <p>This has been done by introducing a new set of API functions, see
+	  <span class="bold_code bc-15"><a href="snmpm.html#sync_get2">sync_get2/3,4</a></span>,
+	  <span class="bold_code bc-15"><a href="snmpm.html#async_get2">async_get2/3,4</a></span>,
+	  <span class="bold_code bc-15"><a href="snmpm.html#sync_get_next2">sync_get_next2/3,4</a></span>,
+	  <span class="bold_code bc-15"><a href="snmpm.html#async_get_next2">async_get_next2/3,4</a></span>,
+	  <span class="bold_code bc-15"><a href="snmpm.html#sync_get_bulk2">sync_get_bulk2/5,6</a></span>,
+	  <span class="bold_code bc-15"><a href="snmpm.html#async_get_bulk2">async_get_bulk2/5,6</a></span>,
+	  <span class="bold_code bc-15"><a href="snmpm.html#sync_set2">sync_set2/3,4</a></span> and
+	  <span class="bold_code bc-15"><a href="snmpm.html#async_set2">async_set2/3,4</a></span>
+	  for more info. </p>
+          <p>Own Id: OTP-9162</p>
+        </li>
+
+        <li>
+          <p>[manager] The old API functions (for get and set
+	  requests:
+	  snmpm:g/3,4,5,6,7, snmpm:ag/3,4,5,6,7,
+	  snmpm:gn/3,4,5,6,7, snmpm:agn/3,4,5,6,7,
+	  snmpm:s/3,4,5,6,7, snmpm:s/3,4,5,6,7,
+	  snmpm:gb/5,6,7,8,9 and snmpm:agb/5,6,7,8,9)
+	  are now officially deprecated.
+	  They will be removed as of R16B. </p>
+          <p>Own Id: OTP-9174</p>
+        </li>
+
+        <li>
+          <p>[agent] Pass extra info through the agent to the net-if
+	  process when sending notifications. </p>
+	  <p>See
+	  <span class="bold_code bc-15"><a href="snmpa.html#send_notification2">snmpa:send_notification2/3</a></span> for more info.
+	  See also the incomming net-if messages when sending a
+	  <span class="bold_code bc-15"><a href="snmp_agent_netif.html#im_send_pdu">trap</a></span>
+	  (send_pdu message) and
+	  <span class="bold_code bc-15"><a href="snmp_agent_netif.html#im_send_pdu_req">notification</a></span> (send_pdu_req message). </p>
+          <p>Own Id: OTP-9183</p>
+          <p>Aux Id: Seq 11817</p>
+        </li>
+
+        <li>
+          <p>Added type specs for functions that do not return. </p>
+          <p>Kostis Sagonas</p>
+          <p>Own Id: OTP-9208</p>
+        </li>
+      </ul>
+    
+
+    <h4><span onMouseOver="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id61675').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-fixed-bugs-and-malfunctions-id61675').style.visibility = 'hidden';"><span id="ghlink-fixed-bugs-and-malfunctions-id61675" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1798" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="fixed-bugs-and-malfunctions" href="#fixed-bugs-and-malfunctions">Fixed Bugs and Malfunctions</a></span></h4>
+      
+
+
+      <ul>
+        <li>
+          <p>Fixed endode/decode of values of type <span class="code">Counter32</span>. </p>
+	  <p>This type (<span class="code">Counter32</span>) is an unsigned integer 32,
+	  but is actually encoded as an signed integer 32.
+	  The encode/decode functions however, treated it as if it was
+	  encodeded as an unsigned integer 32. </p>
+	  <p>Own Id: OTP-9022</p>
+	</li>
+
+      </ul>
+    
+
+
+    <h4><span onMouseOver="document.getElementById('ghlink-incompatibilities-id73378').style.visibility = 'visible';" onMouseOut="document.getElementById('ghlink-incompatibilities-id73378').style.visibility = 'hidden';"><span id="ghlink-incompatibilities-id73378" class="ghlink"><a href="https://github.com/erlang/otp/edit/maint/lib/snmp/doc/src/notes.xml#L1818" title="Found an issue with the documentation? Fix it by clicking here!"><span class="pencil"></span></a></span><a class="title_link" name="incompatibilities" href="#incompatibilities">Incompatibilities</a></span></h4>
+      
+      <p>-</p>
+    
+
+   
+</div>
+<div class="footer">
+<hr>
+<p>Copyright © 1997-2018 Ericsson AB. All Rights Reserved.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript">window.__otpTopDocDir = '../../../../doc/js/';</script><script type="text/javascript" src="../../../../doc/js/highlight.js"></script>
+</body>
+</html>

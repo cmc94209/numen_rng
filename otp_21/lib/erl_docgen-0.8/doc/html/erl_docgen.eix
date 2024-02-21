@@ -1,0 +1,6 @@
+%% 
+%% Search data file for erl_docgen 0.8
+%% generated June 19, 2018
+%% 
+{"erl_docgen_app.html", {app, "erl_docgen"}, ["erl_docgen"]}.
+{notused, application, ["erl_docgen"]}.
