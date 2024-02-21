@@ -6,9 +6,13 @@ generate the grid.
 rng use **exsplus**. Seed algorithm: **rand:seed_s(exsplus)**
 
 ## Quick Start
->You must have [Erlang/OTP 21](http://erlang.org/download.html)
+- You must have [Erlang/OTP 21](http://erlang.org/download.html)
 OS:centos7
 git clone https://github.com/cmc94209/numen_rng.git
+- ./rebar3 as prod tar -----> rng-0.1.0.tar.gz ---> tar -xvf rng-0.1.0.tar.gz
+- start in background: ./bin/rng start
+- Start in foreground: ./bin/rng console
+- More commands:./bin/rng help
 
 ## Core Module
 - rand.erl
@@ -48,11 +52,7 @@ mk_alg() ->
         uniform_n => fun crypto:rand_plugin_uniform/2}.
 ```
 
-## quick start
-- ./rebar3 as prod tar -----> rng-0.1.0.tar.gz ---> tar -xvf rng-0.1.0.tar.gz
-- start in background: ./bin/rng start
-- Start in foreground: ./bin/rng console
-- More commands:./bin/rng help
+
   
 
 
