@@ -24,9 +24,9 @@
 EI_THREADS=true
 
 # Threads flags
-THR_DEFS=-DWIN32_THREADS -D_WIN32_WINNT=0x0600 -DWINVER=0x0600
+THR_DEFS= -D_THREAD_SAFE -D_REENTRANT -DPOSIX_THREADS -D_POSIX_THREAD_SAFE_FUNCTIONS
 
 # Threads libs
-THR_LIBS=
+THR_LIBS=-lpthread
 
 # ----------------------------------------------------------------------

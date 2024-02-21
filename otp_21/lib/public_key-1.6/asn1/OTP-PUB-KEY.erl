@@ -8,11 +8,11 @@
 -asn1_info([{vsn,'5.0.6'},
             {module,'OTP-PUB-KEY'},
             {options,[warnings,ber,errors,
- {cwd,"/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/lib/public_key/asn1"},
- {outdir,"/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/lib/public_key/asn1"},
+ {cwd,"/home/jok/.kerl/builds/21.0/otp_src_21.0/lib/public_key/asn1"},
+ {outdir,"/home/jok/.kerl/builds/21.0/otp_src_21.0/lib/public_key/asn1"},
  asn1config,noobj,der,
  {i,"."},
- {i,"/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/lib/public_key/asn1"}]}]).
+ {i,"/home/jok/.kerl/builds/21.0/otp_src_21.0/lib/public_key/asn1"}]}]).
 
 -export([encoding_rule/0,maps/0,bit_string_format/0,
          legacy_erlang_types/0]).

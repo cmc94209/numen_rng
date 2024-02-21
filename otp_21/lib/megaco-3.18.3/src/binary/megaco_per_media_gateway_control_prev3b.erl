@@ -8,11 +8,11 @@
 -asn1_info([{vsn,'5.0.6'},
             {module,'megaco_per_media_gateway_control_prev3b'},
             {options,[warnings,per,errors,
- {cwd,"/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/lib/megaco/src/binary"},
- {outdir,"/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/lib/megaco/src/binary"},
+ {cwd,"/home/jok/.kerl/builds/21.0/otp_src_21.0/lib/megaco/src/binary"},
+ {outdir,"/home/jok/.kerl/builds/21.0/otp_src_21.0/lib/megaco/src/binary"},
  legacy_erlang_types,noobj,
  {i,"."},
- {i,"/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/lib/megaco/src/binary"}]}]).
+ {i,"/home/jok/.kerl/builds/21.0/otp_src_21.0/lib/megaco/src/binary"}]}]).
 
 -export([encoding_rule/0,maps/0,bit_string_format/0,
          legacy_erlang_types/0]).

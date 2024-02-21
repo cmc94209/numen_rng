@@ -213,7 +213,7 @@ throw_error({Where, E}, L) when is_list(Where) ->
 
 %% vim: ft=erlang
 
--file("/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/bootstrap/lib/parsetools/include/yeccpre.hrl", 0).
+-file("/home/jok/.kerl/builds/21.0/otp_src_21.0/bootstrap/lib/parsetools/include/yeccpre.hrl", 0).
 %%
 %% %CopyrightBegin%
 %%

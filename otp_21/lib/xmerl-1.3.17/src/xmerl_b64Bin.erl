@@ -1,7 +1,7 @@
 -module(xmerl_b64Bin).
 -export([parse/1, parse_and_scan/1, format_error/1]).
 
--file("/net/isildur/ldisk/daily_build/21_prebuild_master-opu_o.2018-06-19_09/otp_src_21/bootstrap/lib/parsetools/include/yeccpre.hrl", 0).
+-file("/home/jok/.kerl/builds/21.0/otp_src_21.0/bootstrap/lib/parsetools/include/yeccpre.hrl", 0).
 %%
 %% %CopyrightBegin%
 %%
