@@ -48,6 +48,13 @@ mk_alg() ->
         uniform_n => fun crypto:rand_plugin_uniform/2}.
 ```
 
+## quick start
+- ./rebar3 as prod tar -----> rng-0.1.0.tar.gz ---> tar -xvf rng-0.1.0.tar.gz
+- start in background: ./bin/rng start
+- Start in foreground: ./bin/rng console
+- More commands:./bin/rng help
+  
+
 
 ## Testing
     ./rebar3 ct
