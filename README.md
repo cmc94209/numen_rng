@@ -1,14 +1,18 @@
 # numen_rng
   ## Overview
 
->This project consists of two apps, rng and book_of_ra. rng is responsible for generating random numbers, and book_of_ra will call rng's apps to
-generate the grid.
-rng use **exsplus**. Seed algorithm: **rand:seed_s(exsplus)**
+>This project consists of three apps(rng ,book_of_ra,bingo). rng is responsible for generating random numbers,
+> and book_of_ra will call rng's apps to generate the grid.
+rng use **rng_generator:random_inner(N)**. Seed algorithm: **rand_algorithm:init_seed()**
 
 ## Quick Start
->You must have [Erlang/OTP 21](http://erlang.org/download.html)
+- You must have [Erlang/OTP 21](http://erlang.org/download.html)
 OS:centos7
 git clone https://github.com/cmc94209/numen_rng.git
+- ./rebar3 as prod tar -----> rng-0.1.0.tar.gz ---> tar -xvf rng-0.1.0.tar.gz
+- start in background: ./bin/rng start
+- Start in foreground: ./bin/rng console
+- More commands:./bin/rng help
 
 ## Core Module
 - rand.erl
@@ -25,8 +29,8 @@ git clone https://github.com/cmc94209/numen_rng.git
 
 ### gen random number
 ```erlang
-    rand_algorithm:random(Range).
-    rand_algorithm:random(Start,End).
+    rng_generator:random_inner(Range).
+    rng_generator:random_inner(Start,End).
 ```
 
 ## code segment
@@ -47,7 +51,10 @@ mk_alg() ->
         uniform => fun crypto:rand_plugin_uniform/1,
         uniform_n => fun crypto:rand_plugin_uniform/2}.
 ```
-
+  
 
 ## Testing
-    ./rebar3 ct
+- test interface：
+  - rng_generator:random(game_book_of_ra,100).
+  - rng_generator:random(game_bingo,100).
+- ./rebar3 ct
