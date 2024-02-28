@@ -3,8 +3,12 @@
 
 >This project consists of three apps(rng ,book_of_ra,bingo). rng is responsible for generating random numbers,
 > and book_of_ra will call rng's apps to generate the grid.
-rng use **rng_generator:random_inner(N)**. Seed algorithm: **rand_algorithm:init_seed()**
+rng use
+> **rng_generator:random_inner(N)**. 
+> Seed algorithm: **rand_algorithm:init_seed()**
+>[openssl doc](https://www.openssl.org/docs/man1.0.2/man3/BN_rand_range.html)
 
+ 
 ## Quick Start
 - You must have [Erlang/OTP 21](http://erlang.org/download.html)
 OS:centos7
