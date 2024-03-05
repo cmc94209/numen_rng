@@ -56,6 +56,10 @@ mk_alg() ->
         uniform_n => fun crypto:rand_plugin_uniform/2}.
 ```
   
+## Source code  md5
+Use rebar3 as prod tar to generate rng-0.1.0.tar.gz. Decompress rng-0.1.0.tar.gz to md5verify and execute ./CheckSourceByMd5 for file MD5 verification.
+When only rng-0.1.0.tar.gz and md5 files fail, the verification passes.
+      
 
 ## Testing
 - test interface：
