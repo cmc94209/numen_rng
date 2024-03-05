@@ -1,0 +1,8 @@
+%% coding: utf-8
+[{release,"rng","0.1.0","10.0",
+          [{kernel,"6.0","./lib/kernel-6.0"},
+           {stdlib,"3.5","./lib/stdlib-3.5"},
+           {crypto,"4.3","./lib/crypto-4.3"},
+           {rng,"0.1.0","./lib/rng-0.1.0"},
+           {sasl,"3.2","./lib/sasl-3.2"}],
+          permanent}].
