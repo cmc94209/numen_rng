@@ -19,19 +19,21 @@
 
 
 %% @doc
--spec init_seed(N :: integer()) -> rand:state().
-init_seed(N) ->
-    N8 = N * 8,
-    <<I1:N8/unsigned-integer, I2:N8/unsigned-integer, I3:N8/unsigned-integer>> = crypto:strong_rand_bytes(N * 3),
-    Alg = mk_alg(),
-    Seed = {I1, I2, I3},
-    rand:seed({Alg, Seed}).
+%%-spec init_seed(N :: integer()) -> rand:state().
+%%init_seed(N) ->
+%%    N8 = N * 8,
+%%    <<I1:N8/unsigned-integer, I2:N8/unsigned-integer, I3:N8/unsigned-integer>> = crypto:strong_rand_bytes(N * 3),
+%%    Alg = mk_alg(),
+%%    Seed = {I1, I2, I3},
+%%    rand:seed({Alg, Seed}).
 
 
 -spec init_seed() -> rand:state().
 init_seed() ->
-    N = random(4, 10),
-    init_seed(N).
+%%    N = random(4, 10),
+%%    init_seed(N).
+    crypto:rand_seed_alg(crypto_cache).
+
 
 %% @doc 在[1,Max]区间 随机一个整数
 random(Max) when Max > 1 ->
@@ -61,18 +63,3 @@ mk_alg() ->
 %%        next => fun crypto:rand_plugin_next/1,
 %%        uniform => fun crypto:rand_plugin_uniform/1,
 %%        uniform_n => fun crypto:rand_plugin_uniform/2}.   %% BN_rand_range
-    CacheBits = ?CRYPTO_CACHE_BITS,
-    EnvCacheSize =
-        application:get_env(
-            crypto, rand_cache_size, CacheBits * 16), % Cache 16 * 8 words
-    Bytes = (CacheBits + 7) div 8,
-    CacheSize =
-        case ((EnvCacheSize + (Bytes - 1)) div Bytes) * Bytes of
-            Sz when is_integer(Sz), Bytes =< Sz ->
-                Sz;
-            _ ->
-                Bytes
-        end,
-    #{type => crypto,
-        bits => CacheBits,
-        next => fun crypto:rand_cache_plugin_next/1}.
