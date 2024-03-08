@@ -10,7 +10,6 @@
 -author("jok1").
 
 -include("rng.hrl").
--define(CRYPTO_CACHE_BITS, 56).
 
 %% API
 
@@ -83,20 +82,6 @@ random(Min, Max) when Max > 1 ->
 
 
 mk_alg() ->
-    CacheBits = ?CRYPTO_CACHE_BITS,
-    EnvCacheSize =
-        application:get_env(
-            crypto, rand_cache_size, CacheBits * 16), % Cache 16 * 8 words
-    Bytes = (CacheBits + 7) div 8,
-    CacheSize =
-        case ((EnvCacheSize + (Bytes - 1)) div Bytes) * Bytes of
-            Sz when is_integer(Sz), Bytes =< Sz ->
-                Sz;
-            _ ->
-                Bytes
-        end,
-    {CacheBits, CacheSize, <<>>}
-
     #{type => crypto,
-        bits => CacheBits,
+        bits => 64,
         next => fun ?MODULE:rand_cache_plugin_next/1}.
