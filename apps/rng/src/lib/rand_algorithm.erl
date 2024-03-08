@@ -57,7 +57,7 @@ random(Min, Max) when Max > 1 ->
 %%
 %%Re-seeding： 如果熵池中的随机性数据用尽，或者达到一定的使用次数，OpenSSL 会重新从系统的随机性源获取新的随机性数据，然后再将它们混合到熵池中，以维持熵池的随机性。
 %%这个函数用于生成随机字节。它需要一个缓冲区和要生成的字节数作为参数。示例用法如下：
-mk_alg() ->
+%%mk_alg() ->
 %%    #{type => crypto,
 %%        bits => 64,
 %%        next => fun crypto:rand_plugin_next/1,
