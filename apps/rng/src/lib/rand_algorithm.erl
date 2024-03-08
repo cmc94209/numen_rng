@@ -34,7 +34,7 @@
 init_seed() ->
 %%    N = random(4, 10),
 %%    init_seed(N).
-    CacheBits = ?CRYPTO_CACHE_BITS,
+    CacheBits = 64,
     EnvCacheSize =
         application:get_env(
             crypto, rand_cache_size, CacheBits * 16), % Cache 16 * 8 words
