@@ -14,7 +14,7 @@
 
 %% API
 
--export([init_seed/0, init_seed/1]).
+-export([init_seed/0]).
 -export([random/1, random/2]).
 
 
