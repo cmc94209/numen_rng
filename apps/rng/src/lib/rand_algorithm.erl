@@ -28,11 +28,28 @@
 %%    rand:seed({Alg, Seed}).
 
 
+
+
+
 -spec init_seed() -> rand:state().
 init_seed() ->
 %%    N = random(4, 10),
 %%    init_seed(N).
-    crypto:rand_seed_alg(crypto_cache).
+    CacheBits = ?CRYPTO_CACHE_BITS,
+    EnvCacheSize =
+        application:get_env(
+            crypto, rand_cache_size, CacheBits * 16), % Cache 16 * 8 words
+    Bytes = (CacheBits + 7) div 8,
+    CacheSize =
+        case ((EnvCacheSize + (Bytes - 1)) div Bytes) * Bytes of
+            Sz when is_integer(Sz), Bytes =< Sz ->
+                Sz;
+            _ ->
+                Bytes
+        end,
+    Alg = mk_alg(),
+    Seed = {CacheBits, CacheSize, <<>>},
+    rand:seed({Alg, Seed}).
 
 
 %% @doc 在[1,Max]区间 随机一个整数
@@ -63,3 +80,23 @@ random(Min, Max) when Max > 1 ->
 %%        next => fun crypto:rand_plugin_next/1,
 %%        uniform => fun crypto:rand_plugin_uniform/1,
 %%        uniform_n => fun crypto:rand_plugin_uniform/2}.   %% BN_rand_range
+
+
+mk_alg() ->
+    CacheBits = ?CRYPTO_CACHE_BITS,
+    EnvCacheSize =
+        application:get_env(
+            crypto, rand_cache_size, CacheBits * 16), % Cache 16 * 8 words
+    Bytes = (CacheBits + 7) div 8,
+    CacheSize =
+        case ((EnvCacheSize + (Bytes - 1)) div Bytes) * Bytes of
+            Sz when is_integer(Sz), Bytes =< Sz ->
+                Sz;
+            _ ->
+                Bytes
+        end,
+    {CacheBits, CacheSize, <<>>}
+
+    #{type => crypto,
+        bits => CacheBits,
+        next => fun ?MODULE:rand_cache_plugin_next/1}.
