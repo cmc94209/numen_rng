@@ -84,4 +84,4 @@ random(Min, Max) when Max > 1 ->
 mk_alg() ->
     #{type => crypto,
         bits => 64,
-        next => fun ?MODULE:rand_cache_plugin_next/1}.
+        next => fun crypto:rand_cache_plugin_next/1}.
