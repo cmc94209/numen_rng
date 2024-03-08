@@ -73,7 +73,6 @@ mk_alg() ->
             _ ->
                 Bytes
         end,
-    {#{type => crypto,
+    #{type => crypto,
         bits => CacheBits,
-        next => fun crypto:rand_cache_plugin_next/1},
-        {CacheBits, CacheSize, <<>>}}.
+        next => fun crypto:rand_cache_plugin_next/1}.
