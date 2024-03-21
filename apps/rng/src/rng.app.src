@@ -1,6 +1,6 @@
 {application, rng,
  [{description, "An OTP application"},
-  {vsn, "0.1.0"},
+  {vsn, "rand_byte-0.1.0"},
   {registered, []},
   {mod, {rng_app, []}},
   {applications,
