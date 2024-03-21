@@ -1,7 +1,7 @@
-{release,{"rng","0.1.0"},
+{release,{"rng","rand_byte-0.1.0"},
          {erts,"10.0"},
          [{kernel,"6.0"},
           {stdlib,"3.5"},
           {crypto,"4.3"},
-          {rng,"0.1.0"},
+          {rng,"rand_byte-0.1.0"},
           {sasl,"3.2"}]}. 
